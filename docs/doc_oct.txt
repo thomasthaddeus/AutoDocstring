@@ -1,0 +1,55 @@
+Can you write a program to scan python files and insert a file docstring based on the code in the file? If there's already a file doctoring in the file update the doctoring. Additionally the docstring should conform to the Google style of documentation for python. Lastly a logger should record the whole operation verbosely to a txt file. Without writing the code can you detail the requirements and any additional functionalities that this program might need?
+Using all of the requirements create a file structure diagram of this program. Each class should have its own file, there should be an __init__.py file in the folder and the main file outside of the folder should be able to implement all of the functionality from the classes. Call the folder doc_oct
+
+## Requirements
+
+Python script that inserts and updates Google-style docstrings in Python files and logs the operations:
+
+1. Input/Output:
+	- The program should accept a directory as input and scan all Python (.py) files in it, including those in subdirectories.
+	- The program should update the Python files in place, adding or updating file-level docstrings as necessary.
+	- The program should output a log file detailing its operations.
+1. Docstring Parsing and Writing:
+	- The program should use a Python parsing library, such as ast or parso, to parse the Python files. This allows it to understand the structure of the code and identify existing docstrings.
+	- If a file does not have a docstring, the program should insert one at the beginning of the file. The docstring should provide a basic template that conforms to the Google style. The developer can then fill in the details.
+	- If a file already has a docstring, the program should check whether it conforms to the Google style. If not, the program should update the docstring to match the Google style, preserving any existing content where possible.
+	- The program should generate as much of the docstring content as possible based on the code. For example, it could list the functions, classes, and methods defined in the file, along with their arguments.
+1. Logging:
+	- The program should use the logging module to log its operations. It should record the start and end of the process, each file it processes, and any docstrings it adds or updates.
+	- The program should write the log messages to a text file. It should also print them to the console so that the user can monitor the process.
+	- The program should use the logging module's level system to control the verbosity of the log. The user should be able to set the log level (e.g., INFO, DEBUG) as a command-line argument.
+1. Error Handling:
+	- The program should handle any exceptions that occur during the parsing, writing, or logging processes. It should log the exceptions and continue with the next file.
+1. Additional Functionality:
+	- The program could provide a dry-run option that doesn't change any files but shows what changes would be made. This allows the user to preview the results before running the program for real.
+	- The program could provide a backup option that saves the original versions of the files before making any changes. This allows the user to easily revert the changes if necessary.
+	- The program could provide an interactive mode where it prompts the user for confirmation before making each change. This gives the user more control over the process.
+	- The program could provide a way to ignore certain files or directories. The user could specify these as command-line arguments or in a configuration file.
+	- The program could provide a way to add or update docstrings for individual functions, classes, or methods, not just files. This would require more sophisticated parsing and writing code.
+
+### File structure with each class in its own file:
+
+```bash
+doc_oct/
+│
+├── __init__.py
+├── docstring_parser.py  # Contains DocstringParser class
+├── docstring_writer.py  # Contains DocstringWriter class
+├── logger.py            # Contains Logger class
+└── utils.py             # Contains additional functionality like error handling, dry-run, backup etc.
+
+main.py  # The main script that uses the classes from the 'doc_oct' folder
+logs.txt  # Log file
+```
+
+### Description of what each file might contain:
+
+`__init__.py`: This is an empty file that indicates to Python that the directory should be treated as a package.
+`docstring_parser.py`: This file contains the DocstringParser class, which is responsible for parsing Python files and identifying existing docstrings. It uses a Python parsing library like ast or parso.
+`docstring_writer.py`: This file contains the DocstringWriter class, which is responsible for writing new docstrings and updating existing ones. It uses the information provided by the DocstringParser class.
+`logger.py`: This file contains the Logger class, which is responsible for logging the operations of the program. It uses the logging module.
+`utils.py`: This file contains additional functionality that doesn't fit neatly into the other classes. This might include error handling, the dry-run option, the backup option, and the interactive mode.
+`main.py`: This is the main script that the user runs. It imports the classes from the doc_oct package and uses them to scan a directory, add or update docstrings, and log the operations. It also handles command-line arguments and controls the overall flow of the program.
+`logs.txt`: This is the text file that the Logger class writes to. It's located in the same directory as main.py for convenience, but its location could be configurable.
+
+Note that this is just one possible structure for the program. The exact structure would depend on the specifics of your implementation and your personal coding style.
