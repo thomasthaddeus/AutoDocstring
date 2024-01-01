@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "AutoDocstring"
+version = "1.0.0"
+description = "A tool for automatic generation and updating of Python docstrings."
+authors = ["Thaddeus Thomas <thaddeus.r.thomas@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+astunparse = "^1.6.3"
+# Add your project runtime dependencies here
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pylint = "^2.11.1"
+# Other development dependencies like linters, formatters, etc.
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "pytest>=6.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# Configuration for other tools can be added here
+# For example, pytest, flake8, mypy, etc.
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+[tool.flake8]
+max-line-length = 120
+ignore = ["E203", "W503"]
+exclude = ["build"]
