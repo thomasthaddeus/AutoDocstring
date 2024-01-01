@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import Mock
-from doc_oct.dry_run import DryRunWriter
-from doc_oct.docstring_parser import DocstringParser
-from doc_oct.docstring_writer import DocstringWriter
+from src.doc_oct.dry_run import DryRunWriter
+from src.doc_oct.docstring_parser import DocstringParser
+from src.doc_oct.docstring_writer import DocstringWriter
 
 def test_dry_run_write_new_docstring():
     """

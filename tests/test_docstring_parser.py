@@ -1,5 +1,5 @@
 import pytest
-from doc_oct.docstring_parser import DocstringParser
+from src.doc_oct.docstring_parser import DocstringParser
 import tempfile
 import os
 

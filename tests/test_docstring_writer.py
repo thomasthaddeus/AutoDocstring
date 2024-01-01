@@ -1,5 +1,5 @@
 import pytest
-from doc_oct.docstring_writer import DocstringWriter
+from src.doc_oct.docstring_writer import DocstringWriter
 import tempfile
 import os
 

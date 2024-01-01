@@ -1,6 +1,6 @@
-import pytest
-from doc_oct import main
 from unittest.mock import patch, MagicMock
+import pytest
+from src.doc_oct import main
 
 # Mock the command-line arguments
 @pytest.fixture

@@ -1,6 +1,6 @@
 import pytest
 import logging
-from doc_oct.logger import Logger
+from src.doc_oct.logger import Logger
 from unittest.mock import Mock, patch
 
 def test_logger_info_logging():

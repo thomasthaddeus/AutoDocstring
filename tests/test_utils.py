@@ -1,5 +1,5 @@
 import pytest
-from doc_oct.utils import scan_directory, backup_file
+from src.doc_oct.utils import scan_directory, backup_file
 import tempfile
 import os
 import shutil
